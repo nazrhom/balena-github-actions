@@ -1,0 +1,21 @@
+name: check-files
+
+on: [push]
+
+jobs:
+  readme:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Download scripts
+      run: |
+        DIRECTORY=$(pwd)
+        cd ..
+        git clone https://github.com/balena-io/scripts.git
+        cd $DIRECTORY
+    - name: Run readme check
+      run: |
+        export DEBUG=true
+        bash ../scripts/ci-checks/check-readme.sh .
