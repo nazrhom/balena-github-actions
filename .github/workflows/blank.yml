@@ -1,0 +1,29 @@
+name: check-commits
+
+on: pull_request
+
+jobs:
+  commits:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install apk
+      run: |
+        DIRECTORY=$(pwd)
+        cd ..
+        git clone https://github.com/alpinelinux/apk-tools.git
+        cd apk-tools
+        make
+        sudo make install
+        cd $DIRECTORY
+    - name: Download scripts
+      run: |
+        DIRECTORY=$(pwd)
+        cd ..
+        git clone https://github.com/balena-io/scripts.git
+        cd $DIRECTORY
+    - name: Run scripts
+      run: |
+        bash ../scripts/ci-checks/check-commits.sh
