@@ -17,4 +17,4 @@ jobs:
     - name: Start is-meta-pr
       run: |
         export DEBUG=true
-        bash ../scripts/ci-checks/is-meta-pr.sh
+        bash ../scripts/ci-checks/is-meta-pr.sh $(pwd)
