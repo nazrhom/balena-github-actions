@@ -1,0 +1,19 @@
+name: check-versionist
+
+on: pull_request
+jobs:
+  versionist:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Download scripts
+      run: |
+        DIRECTORY=$(pwd)
+        cd ..
+        git clone https://github.com/balena-io/scripts.git
+        cd $DIRECTORY
+    - name: Start is-meta-pr
+      run: |
+        bash ../scripts/ci-checks/is-meta-pr.sh
