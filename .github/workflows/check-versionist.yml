@@ -8,13 +8,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Download scripts
+    - name: Install resin-commit-lint and download config
       run: |
+        sudo npm install -g resin-commit-lint
         DIRECTORY=$(pwd)
-        cd ..
-        git clone https://github.com/balena-io/scripts.git
+        cd /
+        wget https://raw.githubusercontent.com/AlexProgrammerDE/balena-github-actions/master/config.json
         cd $DIRECTORY
-    - name: Start is-meta-pr
+    - name: Start resin-commit-lint
       run: |
-        export DEBUG=true
-        bash ../scripts/ci-checks/is-meta-pr.sh $(pwd)
+        commit=$(git show $SHA -s --format=%B)
+        resin-commit-lint "${commit}" -c /config.json
