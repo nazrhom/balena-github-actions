@@ -23,10 +23,11 @@ jobs:
         VERSION=$(<VERSION)
         git add .
         git config --local user.email "$github_email"
-        git config --local user.name "AlexProgrammerDE"
+        git config --local user.name "$github_username"
         sudo git commit -m "v$VERSION" -a
       env:
         github_email: ${{ secrets.GITHUB_EMAIL }}
+        github_username: ${{ secrets.GITHUB_USERNAME }}
     - name: Create tag
       run: |
         VERSION=$(<VERSION)
