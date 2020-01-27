@@ -1,0 +1,16 @@
+{
+  "body-lines-max-length": false,
+  "capitalise-subject": false,
+  "change-type": true,
+  "change-type-fixed-spelling": false,
+  "imperative-mood": false,
+  "no-leading-space-in-subject": true,
+  "no-period": false,
+  "no-tag-in-body": true,
+  "no-whitespace-in-prefix": false,
+  "pretty-tags": true,
+  "proper-paragraphs": false,
+  "signature-last": false,
+  "signed-off-commits": false,
+  "title-max-length": false
+}
