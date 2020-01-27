@@ -17,4 +17,5 @@ jobs:
         cd $DIRECTORY
     - name: Run license check
       run: |
+        export DEBUG=true
         bash ../license.sh
