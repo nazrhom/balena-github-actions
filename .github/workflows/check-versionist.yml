@@ -12,10 +12,10 @@ jobs:
       run: |
         sudo npm install -g resin-commit-linter
         DIRECTORY=$(pwd)
-        cd /
+        cd ..
         wget https://raw.githubusercontent.com/AlexProgrammerDE/balena-github-actions/master/config.json
         cd $DIRECTORY
     - name: Start resin-commit-lint
       run: |
         commit=$(git show $SHA -s --format=%B)
-        resin-commit-lint "${commit}" -c /config.json
+        resin-commit-lint "${commit}" -c ../config.json
