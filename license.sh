@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install -y grep
+
 echo "TASKINFO: Check if the repo has a valid license"
 set -e
 
