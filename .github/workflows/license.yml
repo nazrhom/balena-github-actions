@@ -1,0 +1,20 @@
+name: check-files
+
+on: [push]
+
+jobs:
+  license:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Download script
+      run: |
+        DIRECTORY=$(pwd)
+        cd ..
+        wget https://github.com/AlexProgrammerDE/balena-github-actions/raw/master/license.sh
+        cd $DIRECTORY
+    - name: Run license check
+      run: |
+        bash ../license.sh
