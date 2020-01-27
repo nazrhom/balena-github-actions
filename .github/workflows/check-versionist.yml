@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install resin-commit-lint and download config
       run: |
-        sudo npm install -g resin-commit-lint
+        sudo npm install -g resin-commit-linter
         DIRECTORY=$(pwd)
         cd /
         wget https://raw.githubusercontent.com/AlexProgrammerDE/balena-github-actions/master/config.json
